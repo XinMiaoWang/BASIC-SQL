@@ -1,98 +1,121 @@
 # SQLite-Tutorial
 
 
+### 一、SQLite Studio 安装
+
+   &emsp;[在 Windows 上安裝 SQLite Studio](https://sqlitestudio.pl/index.rvt)
+
+### 二、SQL基本語法
+
+![](https://i.imgur.com/k4WyjLK.png)
+
+
 ### Select語句
 
-  功能 :擷取table中一個或多個column的資料
+  * 功能 : 擷取table中一個或多個column的資料
 
-  基本語法
+  * 基本語法
   
-   SELECT column1, column2, columnN FROM table_name;
+  	***SELECT column1, column2, columnN FROM table_name;***
 
-    - 擷取所有column的資料
-      select * from my_database.class
-
-    - 擷取指定column的資料
-      select Name from my_database.class
+	    - 擷取所有column的資料('*'代表所有的column)
+	      select * from mydb.class
+	      
+	![](https://i.imgur.com/8YuUfVL.png)
+		
+	    - 擷取指定column的資料
+	      select Name from mydb.class
+	      
+	![](https://i.imgur.com/QsXPgTm.png)
 
 ### As語句
 
-功能:可以使用不同的名稱來顯示原本的column名稱
+  * 功能:可以使用不同的名稱來顯示原本的column名稱
 
-(As只是暫時性的變更column名稱，並不會真的把原本的column名稱覆蓋過去)
+    (As只是暫時性的變更column名稱，並不會真的把原本的column名稱覆蓋過去)
 
-  基本語法
+  * 基本語法
 
-  SELECT column_name AS alias_name
-  FROM table_name
+  	***SELECT column_name AS alias_name FROM table_name***
 
-    - select Name as New_Name from my_database.class
-
-    - select Name as [New Name] from my_database.class
-       -使用[新名稱]可以顯示空格或特殊字元
+    	select Name as New_Name from mydb.class
+	
+	  ![](https://i.imgur.com/mUjyRhI.png)
+	
+    	select Name as [New Name] from mydb.class
+       	使用[ ]可以顯示空格或特殊字元
+	  
+	  ![](https://i.imgur.com/qUrUTAB.png)
 
 ### 字串連接
 
-select Name ||"-"|| Age from my_database.class
-   - 以”-”這個符號來連接Name和Age這二個column的資料
+   	- 以"-"這個符號來連接Name和Age這二個column的資料
+   	  select Name ||"-"|| Age from mydb.class
 
-select Name ||"-"|| Age as [Name-Age] 
-   from my_database.class
+   ![](https://i.imgur.com/HnHnQOQ.png)
+
+	- 產生的column name 不太好看，我們可以用as來為他取個新名稱
+	  select Name ||"-"|| Age as [Name-Age] from mydb.class
+	  
+   ![](https://i.imgur.com/tVC57Bh.png)
 
 ### Distinct關鍵字
 
-功能 : 消除重複的資料列
+  * 功能 : 消除重複的資料列
 
-  基本語法
+  * 基本語法
 
-  SELECT DISTINCT column1, column2,.....columnN 
-  FROM table_name
+  	***SELECT DISTINCT column1, column2,.....columnN FROM table_name***
 
-    select distinct Sex from my_database.class
+    	select distinct Sex from mydb.class
+	
+	![](https://i.imgur.com/ntbIw6S.png)
 
-    select distinct Sex,Age from my_database.class
-       -如果select distinct包含多個column，則依照所有column的組合來決
-         定資料列的唯一性
+    	select distinct Sex,Age from mydb.class
+       	-如果select distinct包含多個column，則依照所有column的組合來決定資料列的唯一性
+	
+	![](https://i.imgur.com/9xboW2w.png)
          
+	 
 ### 算術運算子
 
-+
--
-*
-/
-% : 取餘數
+	+ : 加法
+	- : 減法
+	* : 乘法
+	/ : 除法
+	% : 取餘數 ex. 8 % 5 = 3
 
 
 ### 比較運算子
 
-== (等於)
-<> (不等於)
-< (小於)
-<= (小於等於)
-> (大於)
->= (大於等於)
+	== (等於)
+	<> (不等於)
+	< (小於)
+	<= (小於等於)
+	> (大於)
+	>= (大於等於)
 
 ### 邏輯運算子
 
-And : 所有條件都要成立才會回傳true
-Or : 只要有一個條件成立就回傳true
-Not : 反轉，可以把true變成false，false變成true
+	And : 所有條件都要成立才會回傳true。
+	Or : 只要有一個條件成立就回傳true。
+	Not : 反轉，可以把true變成false，false變成true。
 
 
 ### Where字句
 
-功能 : 篩選資料
+  * 功能 : 篩選資料
 
-  基本語法
+  * 基本語法
 
-  SELECT column1, column2, columnN 
-  FROM table_name
-  WHERE [condition]
-
+  ***SELECT column1, column2, columnN FROM table_name***
+  
+  &emsp;***WHERE [condition]***
 
     select * from my_database.class
        where Age > 13
-
+    (where後面放條件)
+    
 ### Function
 
 avg() : 取平均
