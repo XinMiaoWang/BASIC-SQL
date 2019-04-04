@@ -245,11 +245,14 @@
 	***若無指定則默認為asc***
 
 
+
 ### 三、合併(Join)
 
 ### Inner Join
 
   * 功能 : 取交集
+  
+	![](https://i.imgur.com/wZh0e3t.png)
 
 		select Name,Score from class inner join score
 			   on class.Name == score.Name
@@ -314,8 +317,11 @@
 ### 集合運算子
 
   * 種類 : 
+  
 	1、Union
+	
 	2、Intersection
+	
 	3、Difference
 	
   ***集合運算時，上下table的column數量、名稱、型態、順序必須一樣***
@@ -326,15 +332,15 @@
   * 功能 : 聯集，將上下表合併起來，且會去除重複的資料列。
 
 		select *
-			from append1
+			from Appending01
 			
 		union
 		
 		select *
-			from append2
+			from Appending02
 		   order by ID
 
-  ***Union ALL 不會去掉重複的資料列***
+  	***Union ALL 不會去掉重複的資料列***
 
 
 ### Intersection
@@ -342,12 +348,12 @@
   * 功能 : 交集。
 
 		select *
-			from append1
+			from Appending01
 			
 		intersect
 		
 		select *
-			from append2
+			from Appending02
 		   order by ID
 
 
@@ -357,10 +363,12 @@
   * 功能 : 差集，將表一的資料減去表二的資料所得的結果。
 
 		select *
-			from append1
-			    except
-		   select *
-			from append2
+			from Appending01
+			
+		except
+		
+		select *
+			from Appending02
 		   order by ID
 
 	***會刪除重複的資料列****
