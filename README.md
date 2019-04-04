@@ -248,6 +248,9 @@
 
 ### 三、合併(Join)
 
+![](https://i.imgur.com/FWWIBDO.png)
+
+
 ### Inner Join
 
   * 功能 : 取交集
