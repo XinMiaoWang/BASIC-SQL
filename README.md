@@ -108,52 +108,60 @@
 
   * 基本語法
 
-  ***SELECT column1, column2, columnN FROM table_name***
+  	***SELECT column1, column2, columnN FROM table_name***
   
-  &emsp;***WHERE [condition]***
+  	&emsp;***WHERE [condition]***
 
-    select * from my_database.class
-       where Age > 13
-    (where後面放條件)
-    
-### Function
+	    select * from mydb.class
+	       where Age > 13
+	       
+	    (where後面放條件)
+	    
+    ![](https://i.imgur.com/z4p6GcS.png)
 
-avg() : 取平均
-max() : 取最大值
-min() :取最小值
-sum() : 計算總和
-count(*) : 計算table中有幾筆資料
-round(num,length) : 四捨五入
+### 常用Function
+
+	  avg() : 取平均
+	  max() : 取最大值
+	  min() :取最小值
+	  sum() : 計算總和
+	  count(*) : 計算table中有幾筆資料
+	  round(num,length) : 四捨五入
 
 
 ### Like
 
-功能 :字串比對
+* 功能 : 字串比對
 
-% : 代表零個或一個以上的任意字元
-_ : 代表單一個數的任意字元 
+	% : 代表零個或一個以上的任意字元
 
-
-    where Name like "A%“
-
-    where Name like "A_“
-
-    where Name like “A_ _“
-
-    where Name like "%e“
-
-    where Name like "%c%"
+	_ : 代表單一個任意字元 
 
 
-### Between / And範圍條件
+	    where Name like "A%"
 
-功能 : 用來指定一個範圍，資料值必須在最小值與最大值之間(含最大值、最小值)
+	    where Name like "A_"
 
-select * from my_database.class
-   where Age between 13 and 15
-   //Age要在13~15之間(含13、15)
+	    where Name like “A_ _"
+
+	    where Name like "%e"
+
+	    where Name like "%c%"
+
+
+### Between / And 範圍條件
+
+ * 功能 : 用來指定一個範圍，資料值必須在最小值與最大值之間(含最大值、最小值)
+
+		select * from mydb.class
+		   where Age between 13 and 15
+		   
+   會篩選出Age在13~15之間的資料   
    
-### Case…When….Then
+   ![](https://i.imgur.com/ogmbhkY.png)
+
+   
+### Case…When…Then
 
     select *,
       case
@@ -161,39 +169,47 @@ select * from my_database.class
         when Height < 70 then "normal"
         else "tall"
       end as result
-       from my_database.class
+       from mydb.class
+       
+   ![](https://i.imgur.com/e9e9rvk.png)
+
 
 ### IN集合條件
 
-功能 : 只要有出現在集合中的元素都會被選取
+  * 功能 : 只要有出現在集合中的元素都會被選取
 
-select * from my_database.class
-   where Age IN(12,15)
-
-select * from my_database.class
-   where Age NOT IN(12,15)	//留下沒出現在集合中的元素
+		select * from mydb.class
+		   where Age IN(12,15)
+		
+	![](https://i.imgur.com/iWh1zl4.png)
+		
+		- 留下沒出現在集合中的元素
+			select * from mydb.class
+			where Age NOT IN(12,15)
 
 ### IS NULL / IS NOT NULL
 
-NULL表示欄位中沒有任何的值
-IS NULL : 若該欄位是NULL就回傳True，否則False
-IS NOT NULL : 若該欄位不是NULL就回傳True，否則False
+	NULL表示欄位中沒有任何的值
+	IS NULL : 若該欄位是NULL就回傳True，否則False
+	IS NOT NULL : 若該欄位不是NULL就回傳True，否則False
 
-select * from my_database.class
-   where Age is NULL
 
-Group By
+	select * from mydb.class
+	   where Age is NULL
+
+
+### Group By
 
 功能 : 依照某些欄位的值進行分組，有相同的值就分在一組
 
-select Age , avg(Weight) from my_database.class
+select Age , avg(Weight) from mydb.class
    group by Age
    
 Having
 
 功能 : 對GROUP BY分組後的結果再次過濾
 
-select * from my_database.car
+select * from mydb.car
 	group by Make
 	Having count(Make) < 8
 
